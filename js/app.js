@@ -1,27 +1,28 @@
 const methods = require('./methods');
 
-class Model {
+class Product {
     constructor(data) {
         this.a = data.height,
         this.b = data.width,
         this.c = data.length
     }
-    init() {
+    draw() {
         paper.install(window);
     	paper.setup('cardboarbox');
-    }
-
-    draw() {
         methods.render(methods.getCoords(this))
-        console.log('done')
+      
     }
-    downloadBottom() {
-        methods.downloadAsSVG(`Bottom-${this.a}x${this.b}x${this.c}`);
-    }
-    downloadTop() {
-        methods.downloadAsSVG(`Top-${this.a}x${this.b}x${this.c}`)
+    download(fileName) {
+        if(!fileName) {
+            fileName = 'default.svg'
+        }
+            var url = "data:image/svg+xml;utf8," + encodeURIComponent(paper.project.exportSVG({asString:true}));
+            var link = document.createElement("a");
+            link.download = fileName;
+            link.href = url;
+            link.click();
     }
 }
 
 
-module.exports = Model;
+module.exports = Product;

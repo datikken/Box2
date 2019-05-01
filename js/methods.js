@@ -48,17 +48,6 @@ const getCoords = (Model) => {
         ]
 }
 
-function downloadAsSVG(fileName) {
-    if(!fileName) {
-        fileName = 'default.svg'
-    }
-        var url = "data:image/svg+xml;utf8," + encodeURIComponent(paper.project.exportSVG({asString:true}));
-        var link = document.createElement("a");
-        link.download = fileName;
-        link.href = url;
-        link.click();
-}
-
 const render = (data) => {
 	var myPath = new Path();
 	myPath.strokeColor = 'black';
@@ -70,9 +59,8 @@ const render = (data) => {
     })
 
     paper.view.update();    
-    // downloadAsSVG(fileName);
 }
 
 module.exports = {
-    getCoords,render, downloadAsSVG
+    getCoords,render
 }
