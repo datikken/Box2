@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.0/paper-full.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <title>Корбко Генератор</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<canvas id="cardboarbox" width="1300px" height="1300px"></canvas>
+<div class="controls">
+    <h1>Дно</h1>
+    <div class="height-input">
+        <label class="label">Высота мм:</label><br/>
+        <input type="text" id="height">
+    </div>
+
+    <div class="width-input">
+        <label class="label">Ширина мм:</label><br/>
+        <input type="text" id="width">
+    </div>
+
+    <div class="length-input">
+        <label class="label">Длинна мм:</label><br/>
+        <input type="text" id="length">
+    </div>
+    <button disabled onclick="DrawBottom()" id="btn">Скачать</button>
+    <h2>Крышка</h2>
+    <div class="height-input-top">
+        <label class="label">Высота крышки мм:</label><br/>
+        <input type="text" id="height-top">
+    </div>
+    <button disabled onclick="DrawTop()" id="btn2">Скачать</button>
+</div>
+<script src="./js/product.js"></script>
+</body>
+</html>
