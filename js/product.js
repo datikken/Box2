@@ -9,12 +9,22 @@ const elements = {
     topBtn: document.getElementById('btn2'),
 }
 
+const check = () => {
+if(elements.height.value != '' && elements.width.value != '' && elements.length.value != '') {
+        document.getElementById('btn').disabled = false
+    }
+}
 
-elements.length.addEventListener('input', () => {
-    document.getElementById('btn').disabled = false
-    document.getElementById('btn2').disabled = false
+const check2 = () => {
+    if(elements.height_top.value != '' && elements.width.value != '' && elements.length.value != ''){
+        document.getElementById('btn2').disabled = false
+    }
+}
+
+document.addEventListener('keypress', () => {
+    check();
+    check2();
 })
-
 
 elements.bottomBtn.addEventListener('click',() => {
     const height = parseInt(elements.height.value, 10)
@@ -23,7 +33,7 @@ elements.bottomBtn.addEventListener('click',() => {
 
     const box = new Product({height, width, length});
 
-    box.draw();
+    box.render();
     box.download(`Bottom-${height}x${width}x${length}.svg`);
 })
 
@@ -34,7 +44,7 @@ elements.topBtn.addEventListener('click', () => {
 
     const box = new Product({height, width, length});
 
-    box.draw();
+    box.render();
     box.download(`Top-${height}x${width}x${length}.svg`);
 
 })

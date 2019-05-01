@@ -48,19 +48,6 @@ const getCoords = (Model) => {
         ]
 }
 
-const render = (data) => {
-	var myPath = new Path();
-	myPath.strokeColor = 'black';
-	myPath.strokeWidth = 1;
-	var index = 3.7795
-	
-    data.forEach(function(coord) {
-        myPath.add(new Point(coord[0] * index, coord[1] * index))
-    })
-
-    paper.view.update();    
-}
-
 module.exports = {
-    getCoords,render
+    getCoords
 }
